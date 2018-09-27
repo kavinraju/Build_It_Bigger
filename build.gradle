@@ -1,0 +1,57 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.google.guava:guava:22.0'
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.google.gms:google-services:4.0.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        google()
+    }
+}
+
+/*
+    Gradle Task to,
+        1. Launch the GCE local development server. - startGCE
+        2. Run all tests. - runJokeTesting
+        3. Shut the server down again. - stopGCE
+ */
+task startGCE(dependsOn: ":backend:appengineStart"){
+    doLast{
+        println("Starting backend appengine")
+    }
+}
+task stopGCE(){
+    dependsOn ":backend:appengineStop"
+    doLast{
+        println("Stopping backend appengine")
+    }
+}
+task runJokeTesting(){
+    dependsOn startGCE
+    dependsOn ":app:connectedAndroidTest"
+
+/*    mustRunAfter "startGCE"
+    finalizedBy "stopGCE"*/
+    doFirst{
+        println("First")
+    }
+    doLast{
+        println("Joke Testing Stops")
+    }
+}
+
+runJokeTesting.mustRunAfter startGCE
+runJokeTesting.finalizedBy stopGCE

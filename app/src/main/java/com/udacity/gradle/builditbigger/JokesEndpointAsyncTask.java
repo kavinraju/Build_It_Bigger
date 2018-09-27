@@ -23,7 +23,10 @@ import lib.java.create.gradle.udacity.com.jokesandroidlib.JokesActivity;
     JokesEndpointAsyncTask is used to make call to local GCE server to retrived joke.
 
     Important: Set the correct port number in
-            .setRootUrl("http://10.0.2.2:8087/_ah/api/")
+            .setRootUrl("http://10.0.2.2:PORT_NUMBER/_ah/api/")
+
+    If physical device is used follow this
+            .setRootUrl("http://Computer_IP_Address:PORT_NUMBER/_ah/api/")
  */
 public class JokesEndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;

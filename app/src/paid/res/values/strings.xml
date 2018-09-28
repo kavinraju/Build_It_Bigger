@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="intent_key_joke">joke</string>
+        <string name="paid">paid</string>
+</resources>

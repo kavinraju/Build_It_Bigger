@@ -20,18 +20,6 @@ import skr.jokes.JokesProvider;
 )
 public class MyEndpoint {
 
-    /** A simple endpoint method that takes a name and says Hi back */
-    @ApiMethod(name = "sayHi")
-    public MyBean sayHi(@Named("name") String name) {
-        MyBean response = new MyBean();
-        JokesProvider jokesProvider = new JokesProvider();
-        //response.setData("Hi, " + name);
-        response.setData(jokesProvider.getJoke());
-        System.out.print("Endpoint : " +name);
-
-        return response;
-    }
-
     @ApiMethod(name = "getJoke")
     public MyBean getJoke(@Named("name") String joke) {
         MyBean response = new MyBean();

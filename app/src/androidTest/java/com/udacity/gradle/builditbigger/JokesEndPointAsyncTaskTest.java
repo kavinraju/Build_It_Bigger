@@ -2,12 +2,14 @@ package com.udacity.gradle.builditbigger;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import android.util.Log;
 import android.util.Pair;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeoutException;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -15,6 +17,7 @@ import static org.junit.Assert.assertNotNull;
 public class JokesEndPointAsyncTaskTest {
 
     private String joke = null;
+    private static String TAG = JokesEndpointAsyncTask.class.getSimpleName();
 
     @Test
     public void testJokeFromAsyncTask() throws Exception{
@@ -28,12 +31,14 @@ public class JokesEndPointAsyncTaskTest {
                 countDownLatch.countDown();
             }
         };
-        asyncTask.execute(new Pair<>(InstrumentationRegistry.getTargetContext(),"test"));
 
-        countDownLatch.await();
-
-        assertNotNull(joke);
-
+        try {
+            asyncTask.execute(new Pair<>(InstrumentationRegistry.getTargetContext(),"test"));
+            countDownLatch.await();
+            assertNotNull(joke);
+        }catch (InterruptedException e){
+            Log.d(TAG, e.toString());
+        }
 
 
     }

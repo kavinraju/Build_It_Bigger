@@ -71,7 +71,7 @@ public class JokesEndpointAsyncTask extends AsyncTask<Pair<Context, String>, Voi
         String name = params[0].second;
 
         try {
-            return myApiService.sayHi(name).execute().getData();
+            return myApiService.getJoke(name).execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -87,6 +87,7 @@ public class JokesEndpointAsyncTask extends AsyncTask<Pair<Context, String>, Voi
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();
             return;
         }
+
         Intent intent = new Intent(context, JokesActivity.class);
         intent.putExtra(context.getString(R.string.intent_key_joke), result);
         context.startActivity(intent);

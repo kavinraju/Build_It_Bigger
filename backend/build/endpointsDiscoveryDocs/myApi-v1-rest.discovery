@@ -28,9 +28,10 @@
    ],
    "parameters": {
     "name": {
+     "format": "int32",
      "location": "path",
      "required": true,
-     "type": "string"
+     "type": "integer"
     }
    },
    "path": "{name}",

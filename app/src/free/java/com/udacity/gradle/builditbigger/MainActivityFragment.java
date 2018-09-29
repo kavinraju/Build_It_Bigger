@@ -20,6 +20,8 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.util.Random;
+
 import skr.jokes.JokesProvider;
 
 
@@ -35,9 +37,8 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
 
     private InterstitialAd mInterstitialAd;
     private AdRequest mAdRequest;
-    private Context mContext;
-
     private ProgressBar mProgressBar;
+    private Context mContext;
 
     public MainActivityFragment() {
     }
@@ -80,7 +81,8 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
                 mInterstitialAd.loadAd(mAdRequest);
 
                 //Retrive the Joke once the user closes the InterstitialAd.
-                new JokesEndpointAsyncTask(mProgressBar).execute(new Pair<Context, String>(mContext, getString(R.string.free)));
+                //new JokesEndpointAsyncTask(mProgressBar).execute(new Pair<Context, String>(mContext, getString(R.string.free)));
+                new JokesEndpointAsyncTask(mProgressBar).execute(new Pair<Context, Integer>(mContext, generateRandomNumber(5)));
             }
         });
 
@@ -98,9 +100,16 @@ public class MainActivityFragment extends Fragment implements View.OnClickListen
                 }else {
                     Log.d(TAG, "The interstitial wasn't loaded yet.");
                     // Directly load the Joke if InterstitialAd is not loaded.
-                    new JokesEndpointAsyncTask(mProgressBar).execute(new Pair<Context, String>(mContext, getString(R.string.free)));
+                    new JokesEndpointAsyncTask(mProgressBar).execute(new Pair<Context, Integer>(mContext, generateRandomNumber(5)));
                 }
                 break;
         }
+    }
+
+    private int generateRandomNumber(int bound){
+        Random random = new Random();
+        int num = random.nextInt(bound);
+        Log.d(TAG,String.valueOf(num)+"num");
+        return num;
     }
 }

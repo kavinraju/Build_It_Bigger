@@ -3,4 +3,13 @@
     <string name="title_activity_jokes">Jokes</string>
     <string name="laughing_emoji">Laughing Emoji</string>
     <string name="intent_key_joke">joke</string>
+    <string name="joke_sample">A blonde walked into an electronics store and said to the salesmen: \"I want that tv.\" \n" +
+                        "The salesperson shook his head and said, \"No, we don\'t sell to blondes.\" \n" +
+                        "So the blonde left and came back with her hair dyed brown and said: \"I\'ll take that tv.\" \n" +
+                        "Again the salesman said: \"No, we don\'t sell to blondes.\" \n" +
+                        "So she left again and came back with her hair dyed black and said: \"I want that tv.\" \n" +
+                        "But the salesman still said: \"No, we don't sell to blondes.\" \n" +
+                        "Finally the blonde got fed up and said, \"That's it! How'd you know I was a blonde?!\" she asked. \n" +
+                        "The salesman answered: \"Cause that's a microwave.\"</string>
+    <string name="joke">Joke</string>
 </resources>

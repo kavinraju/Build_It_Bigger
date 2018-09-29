@@ -1,28 +1,28 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Context;
-import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Pair;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
-
-import lib.java.create.gradle.udacity.com.jokesandroidlib.JokesActivity;
-import skr.jokes.JokesProvider;
+import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    Typeface typeface;
+    TextView textViewToolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        textViewToolBar = findViewById(lib.java.create.gradle.udacity.com.jokesandroidlib.R.id.txt_toolbar);
+        typeface = Typeface.createFromAsset(getAssets(),"font/LuckiestGuy-Regular.ttf");
+        textViewToolBar.setTypeface(typeface);
     }
 
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -39,6 +39,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 }

@@ -21,11 +21,11 @@ import skr.jokes.JokesProvider;
 public class MyEndpoint {
 
     @ApiMethod(name = "getJoke")
-    public MyBean getJoke(@Named("name") String joke) {
+    public MyBean getJoke(@Named("name") int position) {
         MyBean response = new MyBean();
         JokesProvider jokesProvider = new JokesProvider();
         //response.setData("Hi, " + name);
-        response.setData(jokesProvider.getJoke());
+        response.setData(jokesProvider.getJoke(position));
 
         return response;
     }

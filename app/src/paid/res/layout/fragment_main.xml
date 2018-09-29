@@ -1,0 +1,114 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivityFragment">
+
+    <TextView
+        android:id="@+id/tv_instructions"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/instructions"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="@dimen/progress_bar_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_instructions" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:cardElevation="16dp"
+        app:cardUseCompatPadding="true"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="4dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBar">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Switch
+                android:id="@+id/switchJoke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorPrimary"
+                app:layout_constraintBottom_toTopOf="@id/wheel_layout"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <github.hellocsl.cursorwheel.CursorWheelLayout
+                android:id="@+id/wheel_layout"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_margin="16dp"
+                app:wheelBackgroundColor="@color/colorPrimaryDark"
+                app:wheelCursorColor="@color/colorPrimary"
+                app:wheelCursorHeight="32dp"
+                app:wheelItemRotateMode="none"
+                app:wheelSelectedAngle="225"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@id/id_wheel_menu_center_item"
+                    style="@style/TextAppearance.AppCompat.Display1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-smallcaps"
+                    android:gravity="center"
+                    android:text="@string/jokes"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+            </github.hellocsl.cursorwheel.CursorWheelLayout>
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>
+
+
+<!--
+  <Button
+        android:id="@+id/btn_tellJoke"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:text="@string/button_text"
+        android:background="@drawable/ripple_rounded_primary_dark"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        style="@style/Base.TextAppearance.AppCompat.Large"
+        android:padding="@dimen/tellJoke_btn_padding"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+-->

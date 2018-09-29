@@ -28,7 +28,7 @@ import lib.java.create.gradle.udacity.com.jokesandroidlib.JokesActivity;
     If physical device is used follow this
             .setRootUrl("http://Computer_IP_Address:PORT_NUMBER/_ah/api/")
  */
-public class JokesEndpointAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+public class JokesEndpointAsyncTask extends AsyncTask<Pair<Context, Integer>, Void, String> {
     private static MyApi myApiService = null;
     @SuppressLint("StaticFieldLeak")
     private Context context;
@@ -49,7 +49,7 @@ public class JokesEndpointAsyncTask extends AsyncTask<Pair<Context, String>, Voi
 
     @SafeVarargs
     @Override
-    protected final String doInBackground(Pair<Context, String>... params) {
+    protected final String doInBackground(Pair<Context, Integer>... params) {
         if(myApiService == null) {
             MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
@@ -68,10 +68,10 @@ public class JokesEndpointAsyncTask extends AsyncTask<Pair<Context, String>, Voi
         }
 
         context = params[0].first;
-        String name = params[0].second;
+        int position = params[0].second;
 
         try {
-            return myApiService.getJoke(name).execute().getData();
+            return myApiService.getJoke(position).execute().getData();
         } catch (IOException e) {
             return e.getMessage();
         }
@@ -81,7 +81,7 @@ public class JokesEndpointAsyncTask extends AsyncTask<Pair<Context, String>, Voi
     protected void onPostExecute(String result) {
         //Open the JokesActivity once the result is obtained
         if (progressBar != null) {
-            progressBar.setVisibility(View.GONE);
+            progressBar.setVisibility(View.INVISIBLE);
         }
         if (result.equals("connect timed out")){
             Toast.makeText(context, result, Toast.LENGTH_SHORT).show();

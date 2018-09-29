@@ -1,39 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".JokesActivity"
     tools:showIn="@layout/activity_jokes">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_joke"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginRight="@dimen/margin_16dp"
+
+            android:layout_marginBottom="@dimen/margin_16dp"
+            android:contentDescription="@string/laughing_emoji"
+            android:src="@drawable/laughing_emoji"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:hint="@string/app_name"
-        android:textColor="@color/colorPrimaryDark"
-        style="@style/Base.TextAppearance.AppCompat.Large"
-        android:fontFamily="serif-monospace"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
+        app:cardUseCompatPadding="true"
+
+        app:cardElevation="8dp"
+        app:cardCornerRadius="4dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        android:layout_marginEnd="@dimen/margin_16dp"
-        android:layout_marginRight="@dimen/margin_16dp"
-        android:layout_marginBottom="@dimen/margin_16dp"
+            <View
+                android:id="@+id/view_top"
+                android:layout_width="match_parent"
+                android:layout_height="16dp"
+                android:background="@color/colorPrimaryDark"
 
-        android:src="@drawable/laughing_emoji"
-        android:contentDescription="@string/laughing_emoji"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-</android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_joke"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:padding="@dimen/margin_16dp"
+
+                android:fontFamily="casual"
+                android:lineSpacingExtra="4dp"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+
+                app:layout_constraintTop_toBottomOf="@id/view_top"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <View
+                android:id="@+id/view_bottom"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+
+                android:background="@color/colorPrimaryDark"
+
+                app:layout_constraintTop_toBottomOf="@id/tv_joke"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>

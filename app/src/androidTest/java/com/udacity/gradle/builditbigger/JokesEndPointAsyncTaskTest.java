@@ -33,7 +33,7 @@ public class JokesEndPointAsyncTaskTest {
         };
 
         try {
-            asyncTask.execute(new Pair<>(InstrumentationRegistry.getTargetContext(),"test"));
+            asyncTask.execute(new Pair<>(InstrumentationRegistry.getTargetContext(),0));
             countDownLatch.await();
             assertNotNull(joke);
         }catch (InterruptedException e){

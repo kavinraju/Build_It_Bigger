@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+        <string name="instructions">Turn ON the switch and Rotate the wheel for a joke.</string>
         <string name="intent_key_joke">joke</string>
+        <string name="jokes">Jokes</string>
         <string name="paid">paid</string>
 </resources>

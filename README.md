@@ -7,6 +7,10 @@ of four modules. A Java library that provides jokes, a Google Cloud Endpoints
 activity for displaying jokes, and an Android app that fetches jokes from the
 GCE module and passes them to the Android Library for display.
 
+
+## Udacity Review
+![Udacity-review-build-it-biggeer](https://user-images.githubusercontent.com/24537737/107149057-9d3fd700-697c-11eb-9ae5-e1f23f0c7aac.PNG)
+
 # Features implemented in this app
 
 * Has a Java library which supplies Jokes.
